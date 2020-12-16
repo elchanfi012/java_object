@@ -1,38 +1,41 @@
 package object.model;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
-public class Emprunt {
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+
+public class Emprunt implements Serializable{
 	
-	private LocalDate borrowedAt;
-	private LocalDate renderedAt;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2L;
+	private LocalDateTime borrowedAt;
+	private LocalDateTime renderedAt;
 	private String borrowerName;
-	private List<Emprunt> emprunts;
 	
 	
 
-	public Emprunt(LocalDate borrowedAt, LocalDate renderedAt, String borrowerName) {
+	public Emprunt(LocalDateTime borrowedAt, LocalDateTime renderedAt, String borrowerName) {
 		this.borrowedAt = borrowedAt;
 		this.renderedAt = renderedAt;
 		this.borrowerName = borrowerName;
-		this.emprunts = new ArrayList<Emprunt>();
 	}
 
-	public LocalDate getBorrowedAt() {
+	public LocalDateTime getBorrowedAt() {
 		return borrowedAt;
 	}
 
-	public void setBorrowedAt(LocalDate borrowedAt) {
+	public void setBorrowedAt(LocalDateTime borrowedAt) {
 		this.borrowedAt = borrowedAt;
 	}
 
-	public LocalDate getRenderedAt() {
+	public LocalDateTime getRenderedAt() {
 		return renderedAt;
 	}
 
-	public void setRenderedAt(LocalDate renderedAt) {
+	public void setRenderedAt(LocalDateTime renderedAt) {
 		this.renderedAt = renderedAt;
 	}
 
@@ -44,17 +47,14 @@ public class Emprunt {
 		this.borrowerName = borrowerName;
 	}
 
-	public List<Emprunt> getEmprunts() {
-		return emprunts;
+	@Override
+	public String toString() {
+		return "Emprunt {borrowedAt=" + borrowedAt 
+				+ ", renderedAt=" + renderedAt 
+				+ ", borrowerName=" + borrowerName + "}";
 	}
 
-	public void addEmprunts(Emprunt emprunt) {
-		this.emprunts.add(emprunt);
-	}
 	
-	public void removeEmprunts(int index) {
-		this.emprunts.remove(index);
-	}
 	
 	
 }

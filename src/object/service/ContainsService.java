@@ -2,11 +2,11 @@ package object.service;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import object.manager.ConsoleManager;
 import object.model.Book;
+import object.service.interfaces.RunnableInterface;
 
-public class ContainsService {
+public class ContainsService implements RunnableInterface{
 	
 	public void run() {
 		List<Book> books = new ArrayList<Book>();

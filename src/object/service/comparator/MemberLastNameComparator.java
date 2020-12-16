@@ -1,4 +1,4 @@
-package object.service;
+package object.service.comparator;
 
 import java.util.Comparator;
 

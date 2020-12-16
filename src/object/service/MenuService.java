@@ -1,8 +1,11 @@
 package object.service;
 
-import object.manager.ConsoleManager;
 
-public class MenuService {
+import object.manager.ConsoleManager;
+import object.service.interfaces.MenuInterface;
+import object.service.interfaces.RunnableInterface;
+
+public class MenuService implements RunnableInterface, MenuInterface{
 	
 	public void run() {
 		handleActions();
@@ -30,7 +33,8 @@ public class MenuService {
 				compare.run();
 			}
 			 if(answer == 3) {
-				
+				LibraryService library = new LibraryService();
+				library.run();
 			}
 				
 		}
@@ -41,13 +45,14 @@ public class MenuService {
 		int answer;
 		
 		do {
+			ConsoleManager.getInstance().consoleLineBreak();
 			ConsoleManager.getInstance().printToConsole("Which service do you want to call ?", true);
 			ConsoleManager.getInstance().consoleLineBreak();
 			
 			ConsoleManager.getInstance().printToConsole("0 - Exit", true);
 			ConsoleManager.getInstance().printToConsole("1 - Contains Service", true);
 			ConsoleManager.getInstance().printToConsole("2 - Compare Service", true);
-			ConsoleManager.getInstance().printToConsole("3 - Date Service", true);
+			ConsoleManager.getInstance().printToConsole("3 - Library Service", true);
 			
 			answer = ConsoleManager.getInstance().readUserInputInteger();
 		}while(answer < 0 || answer > 3);

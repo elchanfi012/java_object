@@ -5,10 +5,15 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+
 import object.manager.ConsoleManager;
 import object.model.Member;
+import object.service.comparator.MemberFirstNameComparator;
+import object.service.comparator.MemberIdComparator;
+import object.service.comparator.MemberLastNameComparator;
+import object.service.interfaces.RunnableInterface;
 
-public class CompareService {
+public class CompareService implements RunnableInterface{
 
 	public void run() {
 			
